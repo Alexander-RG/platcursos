@@ -2,7 +2,7 @@
 import { BrowserRouter,Route,Routes } from "react-router-dom";
 import Home from "./CabeceraLista";
 import InfoTarea from "./InfoTarea";
-BrowserRouter
+
 const MisRutas=()=>{
 return(
 <BrowserRouter>
