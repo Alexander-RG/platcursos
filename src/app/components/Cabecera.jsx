@@ -1,5 +1,5 @@
 import React from 'react';
-import "./Cabecera.css";
+import "../css/Cabecera.css";
 const Cabecera = () => {
   const empresa = "Nombre de la Empresa";
   const usuario = "Nombre de Usuario";
