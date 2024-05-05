@@ -1,5 +1,7 @@
-"use client";
-import { useState } from 'react';
+// components/LoginForm.jsx
+
+import React, { useState } from 'react';
+import firebase from '../firebase'; // Import your firebase.js file
 
 const LoginForm = () => {
   const [loginData, setLoginData] = useState({
@@ -12,11 +14,16 @@ const LoginForm = () => {
     setLoginData((prevData) => ({ ...prevData, [name]: value }));
   };
 
-  const handleLoginSubmit = (e) => {
+  const handleLoginSubmit = async (e) => {
     e.preventDefault();
-    // Call your login API here
-    console.log('Iniciando Sesion:', loginData);
-    // Redirect to dashboard or show error message
+    try {
+      await firebase.auth().signInWithEmailAndPassword(loginData.email, loginData.password);
+      // User logged in successfully
+      // You can redirect or show a success message here
+    } catch (error) {
+      // Handle login error (show error message, etc.)
+      console.error('Error logging in:', error.message);
+    }
   };
 
   return (
@@ -24,7 +31,7 @@ const LoginForm = () => {
       <input
         type="email"
         name="email"
-        placeholder="Correo Electronico"
+        placeholder="Correo Electrónico"
         value={loginData.email}
         onChange={handleLoginChange}
       />
@@ -35,7 +42,7 @@ const LoginForm = () => {
         value={loginData.password}
         onChange={handleLoginChange}
       />
-      <button type="submit">Iniciar Sesion</button>
+      <button type="submit">Iniciar Sesión</button>
     </form>
   );
 };

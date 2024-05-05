@@ -1,5 +1,7 @@
-"use client";
-import { useState } from 'react';
+// components/RegisterForm.jsx
+
+import React, { useState } from 'react';
+import firebase from '../firebase'; // Import your firebase.js file
 
 const RegisterForm = () => {
   const [formData, setFormData] = useState({
@@ -12,11 +14,16 @@ const RegisterForm = () => {
     setFormData((prevData) => ({ ...prevData, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Call your registration API here
-    console.log('Registrando usuario:', formData);
-    // Redirect to login page or show success message
+    try {
+      await firebase.auth().createUserWithEmailAndPassword(formData.email, formData.password);
+      // User registered successfully
+      // You can redirect or show a success message here
+    } catch (error) {
+      // Handle registration error (show error message, etc.)
+      console.error('Error registering user:', error.message);
+    }
   };
 
   return (
@@ -24,7 +31,7 @@ const RegisterForm = () => {
       <input
         type="email"
         name="email"
-        placeholder="Correo Electronico"
+        placeholder="Correo Electrónico"
         value={formData.email}
         onChange={handleChange}
       />
