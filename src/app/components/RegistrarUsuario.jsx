@@ -1,7 +1,7 @@
 "use client"
 import { useState } from "react";
 import {createUserWithEmailAndPassword} from 'firebase/auth';
-import { auth, db } from "./Firebase";
+import { auth, db } from "../database/Firebase";
 import { collection, addDoc } from "firebase/firestore";
 const RegistrarUsuario=()=>{
     const [correo,setcorreo]=useState('');
