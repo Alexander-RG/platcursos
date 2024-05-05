@@ -24,18 +24,18 @@ const LoginForm = () => {
       <input
         type="email"
         name="email"
-        placeholder="Email"
+        placeholder="Correo Electronico"
         value={loginData.email}
         onChange={handleLoginChange}
       />
       <input
         type="password"
         name="password"
-        placeholder="Password"
+        placeholder="Contraseña"
         value={loginData.password}
         onChange={handleLoginChange}
       />
-      <button type="submit">Login</button>
+      <button type="submit">Iniciar Sesion</button>
     </form>
   );
 };

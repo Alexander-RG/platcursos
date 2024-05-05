@@ -1,0 +1,24 @@
+.container {
+    background-color: maroon; /* Color vino */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* Resto de estilos CSS */
+.box {
+    background-color: black; /* Color de fondo negro */
+    color: white; /* Color del texto blanco */
+    border: 1px solid black;
+    padding: 10px;
+    margin: 10px;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.image {
+    width: 100%;
+    height: auto;
+}

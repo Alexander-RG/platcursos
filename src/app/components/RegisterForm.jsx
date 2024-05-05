@@ -15,7 +15,7 @@ const RegisterForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     // Call your registration API here
-    console.log('Registering user:', formData);
+    console.log('Registrando usuario:', formData);
     // Redirect to login page or show success message
   };
 
@@ -24,18 +24,18 @@ const RegisterForm = () => {
       <input
         type="email"
         name="email"
-        placeholder="Email"
+        placeholder="Correo Electronico"
         value={formData.email}
         onChange={handleChange}
       />
       <input
         type="password"
         name="password"
-        placeholder="Password"
+        placeholder="Contraseña"
         value={formData.password}
         onChange={handleChange}
       />
-      <button type="submit">Register</button>
+      <button type="submit">Registrarme</button>
     </form>
   );
 };
