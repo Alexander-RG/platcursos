@@ -2,7 +2,8 @@
 import { BrowserRouter,Route,Routes } from "react-router-dom";
 import Home from "./CabeceraLista";
 import InfoTarea from "./InfoTarea";
-
+import RegistrarUsuario from "./RegistrarUsuario";
+import Cabecera from "./Cabecera";
 const MisRutas=()=>{
 return(
 <BrowserRouter>
@@ -10,7 +11,8 @@ return(
     <Routes>
         <Route path="/" element={<Home/>}/>
         <Route path="/infotarea" element={<InfoTarea/>}/>
-
+        <Route path="/registrar" element={<RegistrarUsuario/>}/>
+        <Route path="/cabecera" element={<Cabecera/>}/>
     </Routes>
 </div>
 

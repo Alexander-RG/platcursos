@@ -6,6 +6,7 @@ const CabeceraLista = () => {
     <>
       <Cabecera/>
       <ListMateria/>
+      
     </>
   );
 }

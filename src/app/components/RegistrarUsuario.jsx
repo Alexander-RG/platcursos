@@ -1,44 +1,48 @@
 "use client"
 import { useState } from "react";
-import {createUserWithEmailAndPassword} from 'firebase/auth';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { auth, db } from "../database/Firebase";
 import { collection, addDoc } from "firebase/firestore";
-const RegistrarUsuario=()=>{
-    const [correo,setcorreo]=useState('');
-    const [contraseña,setcontraseña]=useState('');
-    const [nombre,setnombre]=useState('');
-    const [cargo,setcargo]=useState('');
+import { useNavigate } from 'react-router-dom';
 
-    const Registrar = async (e) => {
-        e.preventDefault();
+const RegistrarUsuario = () => {
+  const [correo, setcorreo] = useState('');
+  const [contraseña, setcontraseña] = useState('');
+  const [nombre, setnombre] = useState('');
+  const [cargo, setcargo] = useState('');
+  
+  let history = useNavigate();
+
+  const Registrar = async (e) => {
+    e.preventDefault();
     try {
-        const userCredential = await createUserWithEmailAndPassword(
-            auth,
-            correo,
-            contraseña
-        );
-        const user = userCredential.user;
+      const userCredential = await createUserWithEmailAndPassword(
+        auth,
+        correo,
+        contraseña
+      );
+      const user = userCredential.user;
 
-        // Save nombre and cargo to the database
-        
-        const usersCollection = collection(db, 'users');
-        const userData = {
-            nombre: nombre,
-            cargo: cargo,
-            id: user.uid
-        };
-       await addDoc(usersCollection, userData);
+      // Save nombre and cargo to the database
+      const usersCollection = collection(db, 'users');
+      const userData = {
+        uid: user.uid,
+        nombre: nombre,
+        cargo: cargo
+      };
 
-        // Actualizar el ID del usuario en la colección 'users'
-       
-        // Handle successful registration
-        console.log("User data saved successfully");
+      await addDoc(usersCollection, userData);
+
+      // Handle successful registration
+      console.log("Usuario registrado correctamente");
+      // Redirect to Cabecera component
+      history('/Cabecera', { state: { userData } });
     } catch (error) {
-        // Handle error
-        console.error("Error saving user data:", error); // Imprimir el error en la consola
+      // Handle registration error
+      console.error("Error al registrar al usuario:", error);
     }
-};
-    
+  };
+
     return(
         <>
         <h1>REGISTRATE</h1>
