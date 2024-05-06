@@ -5,6 +5,7 @@ import InfoTarea from "./InfoTarea";
 import RegistrarUsuario from "./RegistrarUsuario";
 import Cabecera from "./Cabecera";
 import RegisterForm from "./RegisterForm";
+import LoginForm from "./LoginForm";
 const MisRutas=()=>{
 return(
 <BrowserRouter>

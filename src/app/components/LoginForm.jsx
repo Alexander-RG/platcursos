@@ -1,7 +1,7 @@
 // components/LoginForm.jsx
 
 import React, { useState } from 'react';
-import firebase from '../firebase'; // Import your firebase.js file
+import firebase from '../database/Firebase'; // Import your firebase.js file
 
 const LoginForm = () => {
   const [loginData, setLoginData] = useState({

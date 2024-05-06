@@ -2,7 +2,7 @@
 "use client";
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate
-import firebase from '../firebase'; // Import your firebase.js file
+import firebase from '../database/Firebase'; // Import your firebase.js file
 
 const RegisterForm = () => {
     const navigate = useNavigate(); // Initialize useNavigate
