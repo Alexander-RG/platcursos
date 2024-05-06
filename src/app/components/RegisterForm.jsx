@@ -1,9 +1,11 @@
 // components/RegisterForm.jsx
 
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
 import firebase from '../firebase'; // Import your firebase.js file
 
 const RegisterForm = () => {
+    const navigate = useNavigate(); // Initialize useNavigate
   const [formData, setFormData] = useState({
     email: '',
     password: '',
@@ -20,6 +22,7 @@ const RegisterForm = () => {
       await firebase.auth().createUserWithEmailAndPassword(formData.email, formData.password);
       // User registered successfully
       // You can redirect or show a success message here
+        navigate('/login');
     } catch (error) {
       // Handle registration error (show error message, etc.)
       console.error('Error registering user:', error.message);

@@ -15,7 +15,7 @@ return(
         <Route path="/registrar" element={<RegistrarUsuario/>}/>
         <Route path="/cabecera" element={<Cabecera/>}/>
         <Route path="/register" element={<RegisterForm/>}/>
-        <Route path="/login" element={<RegisterForm/>}/>
+        <Route path="/login" element={<LoginForm/>}/>
     </Routes>
 </div>
 
