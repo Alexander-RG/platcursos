@@ -1,5 +1,5 @@
 // components/RegisterForm.jsx
-
+"use client";
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate
 import firebase from '../firebase'; // Import your firebase.js file
